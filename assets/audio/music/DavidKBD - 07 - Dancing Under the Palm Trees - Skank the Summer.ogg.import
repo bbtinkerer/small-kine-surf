@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0gxujdc6jd0o"
+path="res://.godot/imported/DavidKBD - 07 - Dancing Under the Palm Trees - Skank the Summer.ogg-9878fad9343fd5a48e756d5fb16fbd03.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/DavidKBD - 07 - Dancing Under the Palm Trees - Skank the Summer.ogg"
+dest_files=["res://.godot/imported/DavidKBD - 07 - Dancing Under the Palm Trees - Skank the Summer.ogg-9878fad9343fd5a48e756d5fb16fbd03.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

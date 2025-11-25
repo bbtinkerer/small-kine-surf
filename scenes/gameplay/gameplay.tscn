@@ -1,0 +1,143 @@
+[gd_scene load_steps=16 format=3 uid="uid://bosvvjycplwil"]
+
+[ext_resource type="Script" uid="uid://clf2jqkmu6dln" path="res://scenes/gameplay/gameplay.gd" id="1_lb4ud"]
+[ext_resource type="PackedScene" uid="uid://drsn8la34lgq" path="res://scenes/waves/large_wave/LargeWave.tscn" id="2_bhb63"]
+[ext_resource type="Shader" uid="uid://fqpul1qvswf0" path="res://shaders/super_mario_world_transition.gdshader" id="2_i6m2i"]
+[ext_resource type="AudioStream" uid="uid://cipobg3djaudg" path="res://assets/audio/sfx/Ambiance_Sea_Strong_Vik_Big_Waves_Loop_Stereo.wav" id="2_td3fc"]
+[ext_resource type="PackedScene" uid="uid://mr311kda2j1e" path="res://scenes/characters/player/player.tscn" id="3_i6m2i"]
+[ext_resource type="AudioStream" uid="uid://314mn4bd6gg" path="res://assets/audio/sfx/Ambiance_Waterfall_Strong_Loop_Stereo.wav" id="3_td3fc"]
+[ext_resource type="Script" uid="uid://dxu770ebt7j2n" path="res://scripts/components/surf_cam.gd" id="4_td3fc"]
+[ext_resource type="PackedScene" uid="uid://kmx3l8kdh0wr" path="res://scenes/ui/hud/hud.tscn" id="5_216mg"]
+[ext_resource type="Script" uid="uid://c0c5yd7xug3m4" path="res://scenes/gameplay/gameplay_hsm.gd" id="6_krs01"]
+[ext_resource type="Script" uid="uid://dth0rds4iepn5" path="res://scenes/gameplay/gameplay_ready_state.gd" id="7_2eo0c"]
+[ext_resource type="Script" uid="uid://bl1csk06wftsm" path="res://scenes/gameplay/gameplay_play_state.gd" id="8_pimn4"]
+[ext_resource type="Script" uid="uid://bnao0y30auj3l" path="res://scenes/gameplay/gameplay_game_over_state.gd" id="9_moho6"]
+[ext_resource type="Script" uid="uid://bgct7klxxdjp7" path="res://scripts/components/limbo_hsm_state.gd" id="10_uqtxl"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bhb63"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lb4ud"]
+resource_local_to_scene = true
+shader = ExtResource("2_i6m2i")
+shader_parameter/SCREEN_TEXTURE = SubResource("ViewportTexture_bhb63")
+shader_parameter/progress_trans = 0.0
+shader_parameter/transition_color = Color(0, 0, 0, 1)
+
+[node name="GamePlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lb4ud")
+
+[node name="WaveBackgroundSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_td3fc")
+
+[node name="WaveWaterBackgroundSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_td3fc")
+autoplay = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_lb4ud")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(640, 384)
+render_target_update_mode = 4
+
+[node name="LargeWave" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player") instance=ExtResource("2_bhb63")]
+player = NodePath("../Player")
+
+[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("3_i6m2i")]
+position = Vector2(228, 111)
+
+[node name="PointsMarker" type="Marker2D" parent="SubViewportContainer/SubViewport/Player"]
+position = Vector2(-32, -48)
+
+[node name="SurfCam" type="Camera2D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player")]
+position = Vector2(0, 168)
+process_callback = 0
+limit_left = 0
+limit_bottom = 384
+script = ExtResource("4_td3fc")
+player = NodePath("../Player")
+metadata/_custom_type_script = "uid://dxu770ebt7j2n"
+
+[node name="HUD" parent="." instance=ExtResource("5_216mg")]
+layout_mode = 1
+
+[node name="GameplayHSM" type="LimboHSM" parent="."]
+script = ExtResource("6_krs01")
+
+[node name="ReadyState" type="LimboState" parent="GameplayHSM"]
+script = ExtResource("7_2eo0c")
+
+[node name="PlayState" type="LimboState" parent="GameplayHSM"]
+script = ExtResource("8_pimn4")
+
+[node name="GameOverState" type="LimboState" parent="GameplayHSM"]
+script = ExtResource("9_moho6")
+
+[node name="LimboHsmState" type="Label" parent="." node_paths=PackedStringArray("limbo_hsm")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 16.0
+grow_horizontal = 2
+script = ExtResource("10_uqtxl")
+limbo_hsm = NodePath("../GameplayHSM")
+metadata/_custom_type_script = "uid://bgct7klxxdjp7"
+
+[node name="TakeoffInstruction" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -8.0
+offset_right = 224.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press Action Key To Take Off"
+
+[node name="TimeUp" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.89411765, 0.7254902, 0.25490198, 1)
+theme_override_font_sizes/font_size = 48
+text = "TIME UP!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverMessage" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 383.0
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1

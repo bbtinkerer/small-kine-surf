@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dtcu1ql6ayqdh"
+path="res://.godot/imported/DavidKBD - 03 - Coastal Groove Party - Skank the Summer.ogg-0538ff8fa0e0c181c17ab7e2dda80a9a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/DavidKBD - 03 - Coastal Groove Party - Skank the Summer.ogg"
+dest_files=["res://.godot/imported/DavidKBD - 03 - Coastal Groove Party - Skank the Summer.ogg-0538ff8fa0e0c181c17ab7e2dda80a9a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

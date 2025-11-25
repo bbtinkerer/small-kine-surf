@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dervh7slxu8tw"
+path="res://.godot/imported/DavidKBD - 05 - Shred the Pavement - Skank the Summer.ogg-01eb70997e32d0b46b6660572002cb0d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/DavidKBD - 05 - Shred the Pavement - Skank the Summer.ogg"
+dest_files=["res://.godot/imported/DavidKBD - 05 - Shred the Pavement - Skank the Summer.ogg-01eb70997e32d0b46b6660572002cb0d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

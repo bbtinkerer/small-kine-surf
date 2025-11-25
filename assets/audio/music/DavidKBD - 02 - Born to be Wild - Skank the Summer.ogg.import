@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cjxbwste56s0l"
+path="res://.godot/imported/DavidKBD - 02 - Born to be Wild - Skank the Summer.ogg-de1a8b28af8f869117673d5888e9e630.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/DavidKBD - 02 - Born to be Wild - Skank the Summer.ogg"
+dest_files=["res://.godot/imported/DavidKBD - 02 - Born to be Wild - Skank the Summer.ogg-de1a8b28af8f869117673d5888e9e630.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

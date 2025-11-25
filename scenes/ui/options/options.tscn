@@ -1,0 +1,133 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvp4n28nyea0m"]
+
+[ext_resource type="Script" uid="uid://cd5yivahci7j6" path="res://scenes/ui/options/options.gd" id="1_6j0w6"]
+[ext_resource type="Texture2D" uid="uid://dwvfhnpqgec3s" path="res://assets/graphics/background/small-kine-surf-menu-bg.png" id="2_3hhku"]
+[ext_resource type="AudioStream" uid="uid://c2a71o8gxr0qa" path="res://assets/audio/sfx/coin-sound.wav" id="3_7u8vf"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6j0w6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3hhku")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(540, 380)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 68.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[font_size=32][color=gold]OPTIONS[/color][/font_size]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -33.0
+offset_right = 36.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Exit"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -48.0
+offset_right = 250.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="MusicOption" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="Panel/VBoxContainer/MusicOption"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="Panel/VBoxContainer/MusicOption"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 1.0
+step = 0.05
+value = 0.25
+
+[node name="SFXOption" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="Panel/VBoxContainer/SFXOption"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="SFXSlider" type="HSlider" parent="Panel/VBoxContainer/SFXOption"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="GameSpeed" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="GameSpeedLabel" type="Label" parent="Panel/VBoxContainer/GameSpeed"]
+layout_mode = 2
+text = "Game Speed"
+
+[node name="GameSpeedOption" type="OptionButton" parent="Panel/VBoxContainer/GameSpeed"]
+layout_mode = 2
+size_flags_horizontal = 10
+selected = 1
+item_count = 3
+popup/item_0/text = "0.5x"
+popup/item_0/id = 0
+popup/item_1/text = "1.0x"
+popup/item_1/id = 1
+popup/item_2/text = "1.5x"
+popup/item_2/id = 2
+
+[node name="SampleSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7u8vf")
+bus = &"SFX"
+
+[connection signal="value_changed" from="Panel/VBoxContainer/MusicOption/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/SFXOption/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="item_selected" from="Panel/VBoxContainer/GameSpeed/GameSpeedOption" to="." method="_on_game_speed_option_item_selected"]

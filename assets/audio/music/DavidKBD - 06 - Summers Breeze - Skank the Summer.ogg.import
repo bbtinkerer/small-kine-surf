@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://x3tg8xphr65"
+path="res://.godot/imported/DavidKBD - 06 - Summers Breeze - Skank the Summer.ogg-f9080cb30ca7b567f56eb47ba0de9919.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/DavidKBD - 06 - Summers Breeze - Skank the Summer.ogg"
+dest_files=["res://.godot/imported/DavidKBD - 06 - Summers Breeze - Skank the Summer.ogg-f9080cb30ca7b567f56eb47ba0de9919.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

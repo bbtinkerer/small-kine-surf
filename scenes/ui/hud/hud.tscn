@@ -1,0 +1,160 @@
+[gd_scene load_steps=6 format=4 uid="uid://kmx3l8kdh0wr"]
+
+[ext_resource type="Script" uid="uid://3kgsbh2si1nn" path="res://scenes/ui/hud/hud.gd" id="1_as3gr"]
+[ext_resource type="Texture2D" uid="uid://cu4n5i6ehcuyf" path="res://assets/graphics/hud/hud_bg.png" id="1_bngdn"]
+[ext_resource type="Texture2D" uid="uid://dm8v47wv2xur7" path="res://assets/graphics/hud/heart.png" id="2_qao66"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qao66"]
+texture = ExtResource("1_bngdn")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_as3gr"]
+tile_size = Vector2i(48, 48)
+sources/0 = SubResource("TileSetAtlasSource_qao66")
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_as3gr")
+
+[node name="Background" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAkAAAAAAAIAAAABAAkAAAABAAIAAAACAAkAAAABAAIAAAADAAkAAAABAAIAAAAEAAkAAAABAAIAAAAFAAkAAAABAAIAAAAGAAkAAAABAAIAAAAHAAkAAAABAAIAAAAIAAkAAAABAAIAAAAJAAkAAAABAAIAAAAKAAkAAAABAAIAAAALAAkAAAABAAIAAAAMAAkAAAACAAIAAAANAAkAAAADAAAAAAAFAAgAAAABAAAAAAAGAAgAAAABAAAAAAAHAAgAAAABAAAAAAAIAAgAAAABAAAAAAAJAAgAAAABAAAAAAAKAAgAAAABAAAAAAALAAgAAAABAAAAAAAMAAgAAAACAAAAAAANAAgAAAADAAAAAAAEAAgAAAABAAAAAAADAAgAAAABAAAAAAACAAgAAAABAAAAAAABAAgAAAABAAAAAAAAAAgAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_as3gr")
+metadata/_edit_lock_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -291.0
+offset_top = -80.0
+offset_right = 291.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="LifeContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LifeHeader" type="Label" parent="PanelContainer/HBoxContainer/LifeContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.89411765, 0.7254902, 0.25490198, 1)
+text = "LIFE"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/LifeContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Control" type="Control" parent="PanelContainer/HBoxContainer/LifeContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Heart" type="Sprite2D" parent="PanelContainer/HBoxContainer/LifeContainer/HBoxContainer/Control"]
+texture = ExtResource("2_qao66")
+offset = Vector2(16, 16)
+hframes = 2
+
+[node name="Control2" type="Control" parent="PanelContainer/HBoxContainer/LifeContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Heart2" type="Sprite2D" parent="PanelContainer/HBoxContainer/LifeContainer/HBoxContainer/Control2"]
+texture = ExtResource("2_qao66")
+offset = Vector2(16, 16)
+hframes = 2
+
+[node name="Control3" type="Control" parent="PanelContainer/HBoxContainer/LifeContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Heart3" type="Sprite2D" parent="PanelContainer/HBoxContainer/LifeContainer/HBoxContainer/Control3"]
+texture = ExtResource("2_qao66")
+offset = Vector2(16, 16)
+hframes = 2
+
+[node name="TimeContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TimeHeader" type="Label" parent="PanelContainer/HBoxContainer/TimeContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.94512075, 0.6285424, 0.19096199, 1)
+text = "TIME"
+horizontal_alignment = 1
+
+[node name="SecondsLeft" type="Label" parent="PanelContainer/HBoxContainer/TimeContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 6
+text = "60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScoreHeader" type="Label" parent="PanelContainer/HBoxContainer/ScoreContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.9454954, 0.47664678, 0.13835657, 1)
+text = "SCORE"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="PanelContainer/HBoxContainer/ScoreContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 6
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoreContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="HighScoreHeader" type="Label" parent="PanelContainer/HBoxContainer/HighScoreContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.9372549, 0.22745098, 0.047058824, 1)
+text = "HIGH SCORE"
+horizontal_alignment = 1
+
+[node name="HighScore" type="Label" parent="PanelContainer/HBoxContainer/HighScoreContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 6
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw5d46iptsn26"]
+
+[ext_resource type="Script" uid="uid://cmclokuh3ay5c" path="res://scenes/ui/music_ui/music_ui.gd" id="1_68x3k"]
+[ext_resource type="Texture2D" uid="uid://ds2ch3yjwhcig" path="res://assets/graphics/hud/small-kine-surf-sound_sheet-Sheet.png" id="2_qos8e"]
+
+[node name="MusicUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_68x3k")
+
+[node name="SoundOff" type="Sprite2D" parent="."]
+position = Vector2(620, 20)
+texture = ExtResource("2_qos8e")
+hframes = 2
+frame = 1
+metadata/_edit_group_ = true
+
+[node name="SoundOn" type="Sprite2D" parent="."]
+position = Vector2(620, 20)
+texture = ExtResource("2_qos8e")
+hframes = 2
+metadata/_edit_group_ = true
+
+[node name="SongTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+vertical_alignment = 1

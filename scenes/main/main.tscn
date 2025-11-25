@@ -1,0 +1,76 @@
+[gd_scene load_steps=14 format=3 uid="uid://cw4cwp21wuw2i"]
+
+[ext_resource type="Script" uid="uid://dm7yoscqsixdw" path="res://scenes/main/main.gd" id="1_hyk8p"]
+[ext_resource type="PackedScene" uid="uid://c210j5erugpkp" path="res://scenes/managers/music_manager/music_manager.tscn" id="2_b1x3f"]
+[ext_resource type="Script" uid="uid://clo0f77h5bpjf" path="res://scenes/main/main_hsm.gd" id="2_hujxm"]
+[ext_resource type="Script" uid="uid://bki5xekxofxj7" path="res://scenes/main/main_menu_state.gd" id="2_ow5a4"]
+[ext_resource type="PackedScene" uid="uid://dw5d46iptsn26" path="res://scenes/ui/music_ui/music_ui.tscn" id="3_a8run"]
+[ext_resource type="AudioStream" uid="uid://dm10l2d616d3q" path="res://assets/audio/sfx/Blip_Select3.wav" id="3_blune"]
+[ext_resource type="Script" uid="uid://qf35it4nn2wm" path="res://scenes/main/main_options_state.gd" id="3_hujxm"]
+[ext_resource type="AudioStream" uid="uid://cqv0a3t0ffuee" path="res://assets/audio/sfx/Blip_Select2.wav" id="4_th5th"]
+[ext_resource type="Script" uid="uid://cuv5lp36j88kf" path="res://scenes/main/main_play_state.gd" id="4_yyfjg"]
+[ext_resource type="Script" uid="uid://cpebu78fw3wbe" path="res://scenes/main/main_credits_state.gd" id="6_a8run"]
+[ext_resource type="Script" uid="uid://bgct7klxxdjp7" path="res://scripts/components/limbo_hsm_state.gd" id="7_hujxm"]
+[ext_resource type="Shader" uid="uid://dwiy6y3lo4l48" path="res://shaders/wave_transition.gdshader" id="8_yyfjg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b1x3f"]
+shader = ExtResource("8_yyfjg")
+shader_parameter/cutoff = 1.0
+shader_parameter/wave_size = 0.0250000011875
+shader_parameter/wave_frequency = 0.04
+shader_parameter/wave_speed = 20.0
+shader_parameter/wave_foam_size = 0.01
+shader_parameter/foam_color = Color(1, 1, 1, 1)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_hyk8p")
+
+[node name="MusicManager" parent="." instance=ExtResource("2_b1x3f")]
+
+[node name="ButtonSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_blune")
+
+[node name="ButtonHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_th5th")
+
+[node name="SceneHolder" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MusicUI" parent="." instance=ExtResource("3_a8run")]
+
+[node name="MainHSM" type="LimboHSM" parent="."]
+script = ExtResource("2_hujxm")
+
+[node name="MenuState" type="LimboState" parent="MainHSM"]
+script = ExtResource("2_ow5a4")
+
+[node name="OptionsState" type="LimboState" parent="MainHSM"]
+script = ExtResource("3_hujxm")
+
+[node name="PlayState" type="LimboState" parent="MainHSM"]
+script = ExtResource("4_yyfjg")
+
+[node name="CreditsState" type="LimboState" parent="MainHSM"]
+script = ExtResource("6_a8run")
+
+[node name="LimboHsmState" type="Label" parent="." node_paths=PackedStringArray("limbo_hsm")]
+offset_right = 40.0
+offset_bottom = 16.0
+script = ExtResource("7_hujxm")
+limbo_hsm = NodePath("../MainHSM")
+metadata/_custom_type_script = "uid://bgct7klxxdjp7"
+
+[node name="TransitionScreen" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_b1x3f")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.39215687, 0.6901961, 1, 1)

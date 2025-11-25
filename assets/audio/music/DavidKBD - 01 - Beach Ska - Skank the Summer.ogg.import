@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://coeckojmaajuf"
+path="res://.godot/imported/DavidKBD - 01 - Beach Ska - Skank the Summer.ogg-0908d6b43772b6d20e085b57f386ded6.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/music/DavidKBD - 01 - Beach Ska - Skank the Summer.ogg"
+dest_files=["res://.godot/imported/DavidKBD - 01 - Beach Ska - Skank the Summer.ogg-0908d6b43772b6d20e085b57f386ded6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
