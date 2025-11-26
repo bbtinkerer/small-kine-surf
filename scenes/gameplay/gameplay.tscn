@@ -103,7 +103,6 @@ limbo_hsm = NodePath("../GameplayHSM")
 metadata/_custom_type_script = "uid://bgct7klxxdjp7"
 
 [node name="TakeoffInstruction" type="Label" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -116,7 +115,10 @@ offset_right = 224.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Press Action Key To Take Off"
+theme_override_font_sizes/font_size = 24
+text = "Press Space/Enter Key
+To Take Off"
+horizontal_alignment = 1
 
 [node name="TimeUp" type="Label" parent="."]
 visible = false
