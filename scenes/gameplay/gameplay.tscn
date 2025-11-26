@@ -132,12 +132,14 @@ text = "TIME UP!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameOverMessage" type="Label" parent="."]
+[node name="GameOverMessage" type="RichTextLabel" parent="."]
 visible = false
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 383.0
-theme_override_font_sizes/font_size = 48
-text = "GAME OVER"
+bbcode_enabled = true
+text = "[font_size=50][outline_size=25][outline_color=blue][color=gold]GAME OVER[/color][/outline_color][/outline_size][/font_size]
+
+[font_size=25][outline_size=25][outline_color=blue][color=gold]Thank you for playing[/color][/outline_color][/outline_size][/font_size]"
 horizontal_alignment = 1
 vertical_alignment = 1

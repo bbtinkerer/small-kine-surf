@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwvfhnpqgec3s"
-path="res://.godot/imported/small-kine-surf-menu-bg.png-0f6f7e8e6899120e0f0ee0217a822fe3.ctex"
+uid="uid://c3padajbqxt6v"
+path="res://.godot/imported/Gemini_Generated_CreditsBG.png-0451f884bf5b1744219fb276be894f43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/background/small-kine-surf-menu-bg.png"
-dest_files=["res://.godot/imported/small-kine-surf-menu-bg.png-0f6f7e8e6899120e0f0ee0217a822fe3.ctex"]
+source_file="res://assets/graphics/background/Gemini_Generated_CreditsBG.png"
+dest_files=["res://.godot/imported/Gemini_Generated_CreditsBG.png-0451f884bf5b1744219fb276be894f43.ctex"]
 
 [params]
 

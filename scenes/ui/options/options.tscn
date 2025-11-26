@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvp4n28nyea0m"]
 
 [ext_resource type="Script" uid="uid://cd5yivahci7j6" path="res://scenes/ui/options/options.gd" id="1_6j0w6"]
-[ext_resource type="Texture2D" uid="uid://dwvfhnpqgec3s" path="res://assets/graphics/background/small-kine-surf-menu-bg.png" id="2_3hhku"]
+[ext_resource type="Texture2D" uid="uid://dhsqmain47gh5" path="res://assets/graphics/background/Gemini_Generated_OptionsBG.png" id="2_7u8vf"]
 [ext_resource type="AudioStream" uid="uid://c2a71o8gxr0qa" path="res://assets/audio/sfx/coin-sound.wav" id="3_7u8vf"]
 
 [node name="Options" type="Control"]
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_3hhku")
+texture = ExtResource("2_7u8vf")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(540, 380)

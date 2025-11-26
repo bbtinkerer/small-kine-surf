@@ -11,7 +11,7 @@ signal transition_out_finished
 @onready var wave: LargeWave = $SubViewportContainer/SubViewport/LargeWave
 @onready var hud: HUD = $HUD
 @onready var wave_background_sfx: AudioStreamPlayer = $WaveBackgroundSFX
-@onready var game_over_message: Label = $GameOverMessage
+@onready var game_over_message: RichTextLabel = $GameOverMessage
 
 @onready var _sub_viewport_container: SubViewportContainer = $SubViewportContainer
 @onready var _sub_viewport: SubViewport = $SubViewportContainer/SubViewport
